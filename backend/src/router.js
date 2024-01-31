@@ -23,13 +23,13 @@ router.get("/candle/:id", candleControllers.read);
 
 // Route to add a new item
 router.post("/items", itemControllers.add);
-router.post("/candle", candleControllers.add);
+router.post("/candle/add", candleControllers.add);
 
 // Route to edit an item
-router.put("/candle/:id", candleControllers.edit);
+router.put("/candle/:id/update", candleControllers.edit);
 
 // Route to delete an item
-router.delete("/candle/:id", candleControllers.deleteById);
+router.delete("/candle/:id/delete", candleControllers.deleteById);
 
 // Route to add a new user
 router.post("/user", hashPassword, userControllers.add);
