@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import CandlePage from "./pages/CandlePage";
+import LoginPage from "./pages/LogInPage";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/candle/:id",
     element: <CandlePage />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
   },
 ]);
 
