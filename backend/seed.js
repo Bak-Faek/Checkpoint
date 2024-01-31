@@ -19,15 +19,51 @@ const seed = async () => {
 
     // Generating Seed Data
 
-    // Optional: Truncate tables (remove existing data)
-    await database.query("truncate item");
+    // Optional: Delete tables (remove existing data)
+    await database.query("delete from user");
 
-    // Insert fake data into the 'item' table
+    // Insert fake data into the 'user' table
     for (let i = 0; i < 10; i += 1) {
       queries.push(
-        database.query("insert into item(title) values (?)", [
-          faker.lorem.word(),
-        ])
+        database.query(
+          "insert into user(username, email, hashedPassword) values (?, ?, ?)",
+          [faker.lorem.word(), faker.lorem.word(), faker.lorem.word()]
+        )
+      );
+    }
+    // Optional: Delete tables (remove existing data)
+    await database.query("delete from candle");
+    // Insert fake data into the 'candle' table
+    for (let i = 0; i < 10; i += 1) {
+      queries.push(
+        database.query(
+          "insert into candle(candleName, candleDescription, image_url) values (?, ?, ?)",
+          [faker.lorem.word(), faker.lorem.sentence(), faker.internet.url()]
+        )
+      );
+    }
+
+    // Optional: Delete tables (remove existing data)
+    await database.query("delete from perfume");
+    // Insert fake data into the 'perfume' table
+    for (let i = 0; i < 10; i += 1) {
+      queries.push(
+        database.query(
+          "insert into perfume(perfumeName, perfumeDescription) values (?, ?)",
+          [faker.lorem.word(), faker.lorem.sentence()]
+        )
+      );
+    }
+
+    // Optional: Delete tables (remove existing data)
+    await database.query("delete from color");
+    // Insert fake data into the 'color' table
+    for (let i = 0; i < 10; i += 1) {
+      queries.push(
+        database.query(
+          "insert into color(colorName, colorDescription) values (?, ?)",
+          [faker.lorem.word(), faker.lorem.sentence()]
+        )
       );
     }
 
