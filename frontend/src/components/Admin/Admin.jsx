@@ -4,7 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import AdminAdd from "./AdminAdd";
+import AdminAdd from "./Add/AdminAdd";
 
 export default function Admin() {
   const [candles, setCandles] = useState([]);

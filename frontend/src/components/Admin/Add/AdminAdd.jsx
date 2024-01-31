@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import { createSvgIcon } from "@mui/material/utils";
@@ -23,23 +24,25 @@ const PlusIcon = createSvgIcon(
 export default function AdminAdd() {
   return (
     <section>
-      <Card
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          maxWidth: 100,
-          minWidth: 150,
-          maxHeight: 100,
-          minHeight: 200,
-        }}
-      >
-        <PlusIcon color="secondary" />
-        <Typography align="center" variant="body" color="text.secondary">
-          Ajouter une bougie
-        </Typography>
-      </Card>
+      <Link to="/AddCandle">
+        <Card
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            maxWidth: 100,
+            minWidth: 150,
+            maxHeight: 100,
+            minHeight: 200,
+          }}
+        >
+          <PlusIcon color="secondary" />
+          <Typography align="center" variant="body" color="text.secondary">
+            Ajouter une bougie
+          </Typography>
+        </Card>
+      </Link>
     </section>
   );
 }
