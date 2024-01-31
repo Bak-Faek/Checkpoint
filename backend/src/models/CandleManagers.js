@@ -40,11 +40,13 @@ class CandleManager extends AbstractManager {
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
-
-  // async update(item) {
-  //   ...
-  // }
+  async update(candle) {
+    const [result] = await this.database.query(
+      `UPDATE ${this.table} SET candleName=?, candleDescription=? WHERE ${this.table}.id=?`,
+      [candle.candleName, candle.candleDescription, candle.candleId]
+    );
+    return result;
+  }
 
   // The D of CRUD - Delete operation
   async DeletyeById(id) {
