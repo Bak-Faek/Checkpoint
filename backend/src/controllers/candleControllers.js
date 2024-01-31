@@ -34,6 +34,25 @@ const read = async (req, res, next) => {
   }
 };
 
+// The E of BREAD - Edit (Update) operation
+const edit = async (req, res, next) => {
+  try {
+    const { candleName, candleDescription } = req.body;
+    const candleId = req.params.id;
+
+    // uPDATE data to table candle
+    await tables.candle.update({
+      candleName,
+      candleDescription,
+      candleId,
+    });
+
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the item data from the request body
@@ -69,6 +88,7 @@ const deleteById = async (req, res, next) => {
 module.exports = {
   browse,
   read,
+  edit,
   add,
   deleteById,
 };

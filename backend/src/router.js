@@ -22,6 +22,9 @@ router.get("/candle/:id", candleControllers.read);
 router.post("/items", itemControllers.add);
 router.post("/candle", candleControllers.add);
 
+// Route to edit an item
+router.put("/candle/:id", candleControllers.edit);
+
 // Route to delete an item
 router.delete("/candle/:id", candleControllers.deleteById);
 
