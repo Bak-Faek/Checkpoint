@@ -7,6 +7,17 @@ class CandleManager extends AbstractManager {
     super({ table: "candle" });
   }
 
+  // The C of CRUD - Create operation
+  async create(candle) {
+    // Execute the SQL INSERT query to add a new comment to the "comment" table
+    const [result] = await this.database.query(
+      `INSERT INTO ${this.table} (candleName, candleDescription, image_url) VALUES (?, ?, ?)`,
+      [candle.candleName, candle.candleDescription, candle.imageUrl]
+    );
+
+    // Return the ID of the newly inserted comment
+    return result.insertId;
+  }
   // The Rs of CRUD - Read operations
 
   async read(id) {
