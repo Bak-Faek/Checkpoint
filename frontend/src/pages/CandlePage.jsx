@@ -1,9 +1,9 @@
-import CandleHome from "../components/CandleHome";
+import CandleById from "../components/CandleById";
 
 function CandlePage() {
   return (
     <div>
-      <CandleHome />
+      <CandleById />
     </div>
   );
 }
