@@ -36,8 +36,15 @@ class CandleManager extends AbstractManager {
   // }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
-
+  async DeletyeById(id) {
+    // Execute the SQL DELETE query to remove the user from the "user" table
+    const [result] = await this.database.query(
+      `delete from ${this.table} where id = ?`,
+      [id]
+    );
+    // Return the number of affected rows
+    return result.affectedRows;
+  }
   // async delete(id) {
   //   ...
   // }

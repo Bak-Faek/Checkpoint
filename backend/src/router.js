@@ -21,6 +21,9 @@ router.get("/candle/:id", candleControllers.read);
 // Route to add a new item
 router.post("/items", itemControllers.add);
 
+// Route to delete an item
+router.delete("/candle/:id", candleControllers.deleteById);
+
 /* ************************************************************************* */
 
 module.exports = router;
