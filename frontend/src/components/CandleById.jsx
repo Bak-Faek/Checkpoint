@@ -10,7 +10,7 @@ export default function CandleById() {
   const [candle, setCandle] = useState([]);
   const { id: candleId } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:3310/api/candle/${candleId}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/candle/${candleId}`)
       .then((response) => response.json())
       .then((data) => setCandle(data));
   }, []);
