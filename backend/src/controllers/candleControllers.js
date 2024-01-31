@@ -34,8 +34,23 @@ const read = async (req, res, next) => {
   }
 };
 
+// The D of BREAD - Destroy (Delete) operation
+const deleteById = async (req, res, next) => {
+  try {
+    // Delete the item from the database
+    await tables.candle.DeletyeById(req.params.id);
+
+    // Respond with HTTP 204 (No Content)
+    res.sendStatus(204);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
+  deleteById,
 };
