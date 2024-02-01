@@ -29,7 +29,7 @@ class CandleManager extends AbstractManager {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `select candleName, candleDescription, perfumeName, perfumeDescription, colorName, colorDescription from ${this.table}
+      `select candleName, candleDescription, perfumeName, imageUrl, perfumeDescription, colorName, colorDescription from ${this.table}
       join perfume on perfume_id = perfume.id
       join color on color_id = color.id where ${this.table}.id = ?`,
       [id]
@@ -41,7 +41,9 @@ class CandleManager extends AbstractManager {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(
+      `select * from ${this.table} join perfume on perfume_id = perfume.id join color on color_id = color.id`
+    );
 
     // Return the array of items
     return rows;

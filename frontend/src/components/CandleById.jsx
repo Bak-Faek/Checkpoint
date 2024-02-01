@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
+import styles from "./CandleById.module.css";
 
 export default function CandleById() {
   const [candle, setCandle] = useState([]);
@@ -14,12 +15,11 @@ export default function CandleById() {
       .then((response) => response.json())
       .then((data) => setCandle(data));
   }, []);
+
   return (
-    <section>
+    <section className={styles.globalContainer}>
       <Box
         sx={{
-          width: "1",
-          height: "1",
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
@@ -28,16 +28,17 @@ export default function CandleById() {
           gap: 3,
         }}
       >
-        <Paper
-          variant="outlined"
-          sx={{
-            maxHeight: "100",
-          }}
-        >
-          <img width="100%" src={candle.imageUrl} alt="bougie" />
+        <Paper variant="outlined">
+          <img
+            className={styles.imageContainer}
+            width="100%"
+            src={candle.imageUrl}
+            alt="bougie"
+          />
         </Paper>
-        <Card sx={{ width: "1", height: "1" }}>
+        <Card>
           <CardContent
+            className={styles.cardContainer}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -45,7 +46,12 @@ export default function CandleById() {
               gap: 3,
             }}
           >
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography
+              className={styles.titleContainer}
+              gutterBottom
+              variant="h5"
+              component="div"
+            >
               {candle.candleName}
             </Typography>
             <Typography variant="body2" color="text.secondary">
