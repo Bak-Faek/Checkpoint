@@ -15,7 +15,7 @@ const defaultTheme = createTheme();
 
 export default function AdminAddForm() {
   const [candleName, setCandleName] = useState("");
-  const [description, setDescription] = useState("");
+  const [candleDescription, setCandleDescription] = useState("");
   const [perfumes, setPerfumes] = useState([]);
   const [userPerfumeId, setUserPerfumeId] = useState("");
   const [colors, setColors] = useState([]);
@@ -52,31 +52,33 @@ export default function AdminAddForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const postData = async () => {
+      try {
+        const response = await fetch("http://localhost:3310/api/candle/add", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            candleName,
+            candleDescription,
+            perfumes,
+            colors,
+          }),
+        });
 
-    try {
-      const response = await fetch("http://localhost:3310/api/candle/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          candleName,
-          description,
-          perfumes,
-          colors,
-        }),
-      });
-
-      if (response.status === 201) {
-        setIsSuccess(true);
-        setCandleName("");
-        setDescription("");
-      } else {
-        console.error("Failed to add candle");
+        if (response.status === 201) {
+          setIsSuccess(true);
+          setCandleName("");
+          setCandleDescription("");
+        } else {
+          console.error("Failed to add candle");
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
-    }
+    };
+    postData();
   };
 
   return (
@@ -106,8 +108,8 @@ export default function AdminAddForm() {
                 <CandleForm
                   candleName={candleName}
                   setCandleName={setCandleName}
-                  description={description}
-                  setDescription={setDescription}
+                  candleDescription={candleDescription}
+                  setCandleDescription={setCandleDescription}
                 />
                 <PerfumeSelect
                   perfumes={perfumes}

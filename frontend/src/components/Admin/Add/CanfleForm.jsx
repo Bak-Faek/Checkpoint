@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 export default function CandleForm({
   candleName,
   setCandleName,
-  description,
-  setDescription,
+  candleDescription,
+  setCandleDescription,
 }) {
   // Title
 
@@ -16,7 +16,7 @@ export default function CandleForm({
   // Description
 
   const handleChangeDescription = (e) => {
-    setDescription(e.target.value);
+    setCandleDescription(e.target.value);
   };
 
   return (
@@ -34,7 +34,7 @@ export default function CandleForm({
         autoFocus
       />
       <TextField
-        value={description}
+        value={candleDescription}
         onChange={handleChangeDescription}
         margin="normal"
         required
@@ -52,7 +52,7 @@ export default function CandleForm({
 
 CandleForm.propTypes = {
   candleName: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  candleDescription: PropTypes.string.isRequired,
   setCandleName: PropTypes.func.isRequired,
-  setDescription: PropTypes.func.isRequired,
+  setCandleDescription: PropTypes.func.isRequired,
 };
