@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import AdminAdd from "./Add/AdminAdd";
@@ -46,11 +45,7 @@ export default function Admin() {
               }}
             >
               <DeleteCandle id={candle.id} />
-              <CardMedia
-                sx={{ height: 100 }}
-                image={candle.imageUrl}
-                title="bougie"
-              />
+              <img width="100%" src={candle.imageUrl} alt="bougie" />
               <CardContent
                 sx={{
                   display: "flex",

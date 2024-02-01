@@ -32,9 +32,9 @@ export default function AdminAdd() {
             justifyContent: "center",
             alignItems: "center",
             maxWidth: 100,
-            minWidth: 150,
+            minWidth: 200,
             maxHeight: 100,
-            minHeight: 200,
+            minHeight: 300,
           }}
         >
           <PlusIcon color="secondary" />
