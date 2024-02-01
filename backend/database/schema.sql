@@ -18,11 +18,9 @@ CREATE TABLE
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     candleName VARCHAR(50) NOT NULL,
     candleDescription VARCHAR(255) NOT NULL,
-    image_url VARCHAR(255),
-    user_id INT,
+    imageUrl VARCHAR(255),
     perfume_id INT,
     color_id INT,
-    CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE,
     CONSTRAINT perfume_id FOREIGN KEY (perfume_id) REFERENCES perfume (id),
     CONSTRAINT color_id FOREIGN KEY (color_id) REFERENCES color (id)
   );

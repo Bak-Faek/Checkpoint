@@ -27,7 +27,7 @@ const seed = async () => {
       queries.push(
         database.query(
           "insert into user(username, email, hashedPassword) values (?, ?, ?)",
-          [faker.lorem.word(), faker.lorem.word(), faker.lorem.word()]
+          [faker.lorem.word(), faker.internet.email(), faker.lorem.word()]
         )
       );
     }
@@ -37,7 +37,7 @@ const seed = async () => {
     for (let i = 0; i < 10; i += 1) {
       queries.push(
         database.query(
-          "insert into candle(candleName, candleDescription, image_url) values (?, ?, ?)",
+          "insert into candle(candleName, candleDescription, imageUrl) values (?, ?, ?)",
           [faker.lorem.word(), faker.lorem.sentence(), faker.internet.url()]
         )
       );
