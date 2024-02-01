@@ -72,7 +72,7 @@ export default function AdminAddForm() {
         setCandleName("");
         setDescription("");
       } else {
-        console.error("Failed to add recipe");
+        console.error("Failed to add candle");
       }
     } catch (err) {
       console.error(err);
@@ -135,7 +135,7 @@ export default function AdminAddForm() {
       {isSuccess === true && (
         <Alert severity="success">
           <AlertTitle>Success</AlertTitle>
-          Your recipe has been added successfully!
+          Vous avez ajouté une bougie
         </Alert>
       )}
     </>

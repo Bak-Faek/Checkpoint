@@ -21,7 +21,7 @@ export default function ColorSelect({ colors, setUserColorId, userColorId }) {
         {colors.map((color) => {
           return (
             <MenuItem key={color.id} value={color.id}>
-              {color.name}
+              {color.colorName}
             </MenuItem>
           );
         })}

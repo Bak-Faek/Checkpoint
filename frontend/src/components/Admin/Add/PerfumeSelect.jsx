@@ -25,7 +25,7 @@ export default function PerfumeSelect({
         {perfumes.map((perfume) => {
           return (
             <MenuItem key={perfume.id} value={perfume.id}>
-              {perfume.name}
+              {perfume.perfumeName}
             </MenuItem>
           );
         })}
