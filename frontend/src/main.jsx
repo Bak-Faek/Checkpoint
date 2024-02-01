@@ -25,11 +25,11 @@ const router = createBrowserRouter([
   {
     path: "/AddCandle",
     element: <AdminAddForm />,
-   },
-   {
+  },
+  {
     path: "/login",
     element: <LoginPage />,
-   },
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
