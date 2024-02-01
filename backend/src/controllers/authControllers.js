@@ -9,32 +9,37 @@ const login = async (req, res, next) => {
     // Fetch a specific user from the database based on the provided email
     const user = await tables.user.readByEmailWithPassword(req.body.email);
 
-    if (user == null) {
+    if (user === undefined) {
       res.sendStatus(422);
       return;
     }
 
     const verified = await argon2.verify(
-      user.hashed_password,
+      user.hashedPassword,
       req.body.password
     );
 
     if (verified) {
       // Respond with the user and a signed token in JSON format (but without the hashed password)
-      delete user.hashed_password;
+      delete user.hashedPassword;
 
       const token = await jwt.sign(
-        { sub: user.id, email: user.email },
+        { sub: user.id, email: user.email, isAdmin: user.role_id },
         process.env.APP_SECRET,
         {
-          expiresIn: "1h",
+          expiresIn: "2h",
         }
       );
-
-      res.json({
-        token,
-        user,
-      });
+      res
+        .cookie("access_token", token, {
+          httpOnly: true,
+          sameSite: "strict",
+          secure: process.env.NODE_ENV === "production",
+          maxAge: 360000,
+        })
+        .json({
+          user,
+        });
     } else {
       res.sendStatus(422);
     }
@@ -44,6 +49,11 @@ const login = async (req, res, next) => {
   }
 };
 
+const logout = (req, res) => {
+  res.clearCookie("access_token").sendStatus(200);
+};
+
 module.exports = {
   login,
+  logout,
 };
