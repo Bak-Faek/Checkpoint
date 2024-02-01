@@ -8,6 +8,7 @@ import CandlePage from "./pages/CandlePage";
 import AdminPage from "./pages/AdminPage";
 import AdminAddForm from "./components/Admin/Add/AddForm";
 import LoginPage from "./pages/LogInPage";
+import AboutPage from "./pages/AboutPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/about",
+    element: <AboutPage />,
   },
 ]);
 

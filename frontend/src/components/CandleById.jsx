@@ -34,11 +34,7 @@ export default function CandleById() {
             maxHeight: "100",
           }}
         >
-          <img
-            width="100%"
-            src="https://media.istockphoto.com/id/1314494173/fr/photo/bougie-br%C3%BBlante-sur-la-table-noire-jour-de-m%C3%A9moire.jpg?s=1024x1024&w=is&k=20&c=cSTk8ndLznlKFBDA_fsij6UPMQWm9wNZo_t3-PcWKG8="
-            alt="bougie"
-          />
+          <img width="100%" src={candle.imageUrl} alt="bougie" />
         </Paper>
         <Card sx={{ width: "1", height: "1" }}>
           <CardContent
