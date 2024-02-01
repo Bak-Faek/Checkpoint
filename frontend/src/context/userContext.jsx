@@ -7,38 +7,23 @@ const userContext = createContext();
 
 // Étape 2 : créer le provider de mon context
 export function UserContextProvider({ children }) {
-  const [userData, setUserData] = useLocalStorage("user", null);
+  const [user, setUser] = useLocalStorage("user", null);
+  const [token, setToken] = useLocalStorage("token", "");
 
-  const login = (userInfo) => {
-    setUserData(userInfo);
+  const login = (userData) => {
+    setUser(userData.user);
+    setToken(userData.token);
+  };
+  const logout = () => {
+    setUser(null);
+    setToken(null);
   };
 
-  const logout = async () => {
-    try {
-      const response = await fetch(
-        `${import.meta.env.VITE_BACKEND_URL}/api/logout`,
-        {
-          method: "get",
-          credentials: "include",
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-
-      // Redirection vers la page de connexion si la création réussit
-      if (response.status === 200) {
-        setUserData(null);
-      }
-    } catch (err) {
-      // Log des erreurs possibles
-      console.error(err);
-    }
-  };
-
-  useEffect(() => {}, [userData]);
+  useEffect(() => {}, [user]);
 
   const contextValue = useMemo(() => {
-    return { userData, setUserData, login, logout };
-  }, [userData]);
+    return { user, setUser, login, logout, token, setToken };
+  }, [user, token]);
 
   return (
     <userContext.Provider value={contextValue}>{children}</userContext.Provider>
