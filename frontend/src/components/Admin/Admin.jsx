@@ -9,7 +9,7 @@ import AdminAdd from "./Add/AdminAdd";
 export default function Admin() {
   const [candles, setCandles] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3310/api/candle")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/candle`)
       .then((response) => response.json())
       .then((data) => setCandles(data));
   }, []);
@@ -31,6 +31,7 @@ export default function Admin() {
         </Card>
         {candles.map((candle) => (
           <Card
+            key={candle.id}
             sx={{
               maxWidth: 100,
               minWidth: 150,
