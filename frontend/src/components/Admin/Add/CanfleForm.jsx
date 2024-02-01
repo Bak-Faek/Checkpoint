@@ -6,8 +6,10 @@ export default function CandleForm({
   setCandleName,
   candleDescription,
   setCandleDescription,
+  imageUrl,
+  setImageUrs,
 }) {
-  // Title
+  // Nom
 
   const handleChangeName = (e) => {
     setCandleName(e.target.value);
@@ -17,6 +19,11 @@ export default function CandleForm({
 
   const handleChangeDescription = (e) => {
     setCandleDescription(e.target.value);
+  };
+
+  // image URL
+  const handleChangeImage = (e) => {
+    setImageUrs(e.target.value);
   };
 
   return (
@@ -46,6 +53,17 @@ export default function CandleForm({
         multiline
         rows={5}
       />
+      <TextField
+        value={imageUrl}
+        onChange={handleChangeImage}
+        margin="normal"
+        required
+        fullWidth
+        id="Lien de l'image"
+        label="Lien de l'image"
+        name="Lien de l'image"
+        autoComplete="Lien de l'image"
+      />
     </>
   );
 }
@@ -55,4 +73,6 @@ CandleForm.propTypes = {
   candleDescription: PropTypes.string.isRequired,
   setCandleName: PropTypes.func.isRequired,
   setCandleDescription: PropTypes.func.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  setImageUrs: PropTypes.string.isRequired,
 };

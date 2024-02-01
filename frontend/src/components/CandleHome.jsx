@@ -27,12 +27,18 @@ export default function CandleHome() {
           <Card sx={{ maxWidth: 345, minWidth: 345 }}>
             <CardMedia
               sx={{ height: 140 }}
-              image={candle.image_url}
+              image={candle.imageUrl}
               title="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {candle.candleName}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {candle.candleDescription}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {candle.candleDescription}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {candle.candleDescription}

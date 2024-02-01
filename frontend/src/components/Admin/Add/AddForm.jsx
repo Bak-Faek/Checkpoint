@@ -16,6 +16,7 @@ const defaultTheme = createTheme();
 export default function AdminAddForm() {
   const [candleName, setCandleName] = useState("");
   const [candleDescription, setCandleDescription] = useState("");
+  const [imageUrl, setImageUrs] = useState("");
   const [perfumes, setPerfumes] = useState([]);
   const [userPerfumeId, setUserPerfumeId] = useState("");
   const [colors, setColors] = useState([]);
@@ -62,8 +63,9 @@ export default function AdminAddForm() {
           body: JSON.stringify({
             candleName,
             candleDescription,
-            perfumes,
-            colors,
+            imageUrl,
+            userPerfumeId,
+            userColorId,
           }),
         });
 
@@ -110,6 +112,8 @@ export default function AdminAddForm() {
                   setCandleName={setCandleName}
                   candleDescription={candleDescription}
                   setCandleDescription={setCandleDescription}
+                  imageUrl={imageUrl}
+                  setImageUrs={setImageUrs}
                 />
                 <PerfumeSelect
                   perfumes={perfumes}

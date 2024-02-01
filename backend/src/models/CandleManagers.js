@@ -11,7 +11,7 @@ class CandleManager extends AbstractManager {
   async create(candle) {
     // Execute the SQL INSERT query to add a new comment to the "comment" table
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (candleName, candleDescription, image_url, perfume_id, color_id) VALUES (?, ?, ?, ?, ?)`,
+      `INSERT INTO ${this.table} (candleName, candleDescription, imageUrl, perfume_id, color_id) VALUES (?, ?, ?, ?, ?)`,
       [
         candle.candleName,
         candle.candleDescription,

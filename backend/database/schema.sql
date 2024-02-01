@@ -18,7 +18,7 @@ CREATE TABLE
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     candleName VARCHAR(50) NOT NULL,
     candleDescription VARCHAR(255) NOT NULL,
-    image_url VARCHAR(255),
+    imageUrl VARCHAR(255),
     perfume_id INT,
     color_id INT,
     CONSTRAINT perfume_id FOREIGN KEY (perfume_id) REFERENCES perfume (id),
