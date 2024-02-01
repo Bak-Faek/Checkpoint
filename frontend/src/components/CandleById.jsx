@@ -25,7 +25,7 @@ export default function CandleById() {
           alignItems: "center",
           justifyContent: "center",
           flexWrap: "wrap",
-          gap: 5,
+          gap: 3,
         }}
       >
         <Paper
@@ -41,8 +41,8 @@ export default function CandleById() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
-              gap: 5,
+              margin: 5,
+              gap: 3,
             }}
           >
             <Typography gutterBottom variant="h5" component="div">
@@ -52,10 +52,16 @@ export default function CandleById() {
               {candle.candleDescription}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {candle.candleDescription}
+              Couleur : {candle.colorName}
+            </Typography>{" "}
+            <Typography variant="body2" color="text.secondary">
+              {candle.colorDescription}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {candle.candleDescription}
+              Parfum :{candle.perfumeName}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {candle.perfumeDescription}
             </Typography>
           </CardContent>
         </Card>
