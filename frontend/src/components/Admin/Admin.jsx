@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import AdminAdd from "./Add/AdminAdd";
 import DeleteCandle from "./Delete/DeleteCandle";
+import styles from "../CandleHome.module.css";
 
 export default function Admin() {
   const [candles, setCandles] = useState([]);
@@ -15,7 +16,7 @@ export default function Admin() {
       .then((data) => setCandles(data));
   }, []);
   return (
-    <section>
+    <section className={styles.globalContainer}>
       <h2> Gérer Mes Bougies</h2>
       <Box
         sx={{
@@ -24,6 +25,7 @@ export default function Admin() {
           flexWrap: "wrap",
           justifyContent: "center",
           alignItems: "center",
+          margin: 2,
           gap: 3,
         }}
       >
@@ -33,14 +35,10 @@ export default function Admin() {
         {candles.map((candle) => (
           <Link key={candle.id} to={`/candle/${candle.id}`}>
             <Card
+              className={styles.cardContainer}
               sx={{
-                maxWidth: 100,
-                minWidth: 200,
-                maxHeight: 100,
-                minHeight: 300,
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
                 alignItems: "center",
               }}
             >
@@ -48,21 +46,31 @@ export default function Admin() {
               <img width="100%" src={candle.imageUrl} alt="bougie" />
               <CardContent
                 sx={{
+                  padding: 0,
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "center",
                 }}
               >
-                <Typography align="center" variant="h6" component="div">
+                <Typography align="center" variant="h7" component="div">
                   {candle.candleName}
                 </Typography>
                 <Typography
+                  className={styles.details}
                   align="center"
                   variant="body"
                   color="text.secondary"
                 >
-                  {candle.candleDescription}
+                  Couleur : {candle.colorName}
+                </Typography>
+                <Typography
+                  className={styles.details}
+                  align="center"
+                  variant="body"
+                  color="text.secondary"
+                >
+                  Parfum: {candle.perfumeName}
                 </Typography>
               </CardContent>
             </Card>

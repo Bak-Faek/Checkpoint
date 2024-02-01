@@ -1,0 +1,23 @@
+.details {
+  display: none;
+}
+.globalContainer {
+  margin: 5rem 1rem 5rem 1rem;
+}
+.cardContainer {
+  height: 14rem;
+  width: 10rem;
+}
+
+@media (width > 767px) {
+  .cardContainer {
+    height: 26rem;
+    width: 20rem;
+  }
+  .globalContainer {
+    margin: 2rem;
+  }
+  .details {
+    display: block;
+  }
+}

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import { createSvgIcon } from "@mui/material/utils";
+import styles from "../../CandleHome.module.css";
 
 const PlusIcon = createSvgIcon(
   // credit: plus icon from https://heroicons.com/
@@ -26,15 +27,12 @@ export default function AdminAdd() {
     <section>
       <Link to="/AddCandle">
         <Card
+          className={styles.cardContainer}
           sx={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            maxWidth: 100,
-            minWidth: 200,
-            maxHeight: 100,
-            minHeight: 300,
           }}
         >
           <PlusIcon color="secondary" />

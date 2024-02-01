@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import styles from "./CandleHome.module.css";
 
 export default function CandleHome() {
   const [candles, setCandles] = useState([]);
@@ -13,9 +14,8 @@ export default function CandleHome() {
       .then((data) => setCandles(data));
   }, []);
   return (
-    <section>
+    <section className={styles.globalContainer}>
       <h2>Mes Bougies</h2>
-
       <Box
         sx={{
           display: "flex",
@@ -31,24 +31,38 @@ export default function CandleHome() {
         {candles.map((candle) => (
           <Link key={candle.id} to={`/candle/${candle.id}`}>
             <Card
+              className={styles.cardContainer}
               sx={{
-                maxWidth: 100,
-                minWidth: 180,
-                maxHeight: 100,
-                minHeight: 200,
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
                 alignItems: "center",
               }}
             >
               <img width="100%" src={candle.imageUrl} alt="bougie" />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+              <CardContent
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  padding: 0,
+                }}
+              >
+                <Typography gutterBottom variant="h7" component="div">
                   {candle.candleName}
                 </Typography>
-                <Typography variant="p" color="text.secondary">
-                  {candle.candleDescription}
+                <Typography
+                  className={styles.details}
+                  variant="p"
+                  color="text.secondary"
+                >
+                  Couleur : {candle.colorName}
+                </Typography>
+                <Typography
+                  className={styles.details}
+                  variant="p"
+                  color="text.secondary"
+                >
+                  Parfum: {candle.perfumeName}
                 </Typography>
               </CardContent>
             </Card>
