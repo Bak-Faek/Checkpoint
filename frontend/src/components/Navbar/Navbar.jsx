@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 import home from "../../assets/HomeMobile.svg";
-import plus from "../../assets/Plus.svg";
+import admin from "../../assets/admin.png";
 import About from "../../assets/About.svg";
 
 export default function Navbar() {
@@ -15,7 +15,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/admin">
-            <img className={styles.naviconplus} src={plus} alt="icon plus" />
+            <img className={styles.amdin} src={admin} alt="admin" />
           </Link>
         </li>
         <li>
