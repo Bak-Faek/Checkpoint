@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
@@ -43,11 +42,7 @@ export default function CandleHome() {
                 alignItems: "center",
               }}
             >
-              <CardMedia
-                sx={{ height: 140 }}
-                image={candle.imageUrl}
-                title="green iguana"
-              />
+              <img width="100%" src={candle.imageUrl} alt="bougie" />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   {candle.candleName}
