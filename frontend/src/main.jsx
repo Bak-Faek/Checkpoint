@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import CandlePage from "./pages/CandlePage";
+import LoginPage from "./pages/LogInPage";
 import AdminPage from "./pages/AdminPage";
 import AdminAddForm from "./components/Admin/Add/AddForm";
 
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/candle/:id",
     element: <CandlePage />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
   },
   {
     path: "/admin",

@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 export default function CandleHome() {
   const [candles, setCandles] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3310/api/candle")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/candle`)
       .then((response) => response.json())
       .then((data) => setCandles(data));
   }, []);
