@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
@@ -9,19 +10,20 @@ import Alert from "@mui/material/Alert";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import ColorSelect from "./ColorsSelect";
 import PerfumeSelect from "./PerfumeSelect";
-import CandleForm from "./CanfleForm";
+import CandleForm from "./CandleForm";
 
 const defaultTheme = createTheme();
 
 export default function AdminAddForm() {
   const [candleName, setCandleName] = useState("");
   const [candleDescription, setCandleDescription] = useState("");
-  const [imageUrl, setImageUrs] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [perfumes, setPerfumes] = useState([]);
   const [userPerfumeId, setUserPerfumeId] = useState("");
   const [colors, setColors] = useState([]);
   const [userColorId, setUserColorId] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPerfume = async () => {
@@ -73,6 +75,7 @@ export default function AdminAddForm() {
           setIsSuccess(true);
           setCandleName("");
           setCandleDescription("");
+          navigate("/admin");
         } else {
           console.error("Failed to add candle");
         }
@@ -113,7 +116,7 @@ export default function AdminAddForm() {
                   candleDescription={candleDescription}
                   setCandleDescription={setCandleDescription}
                   imageUrl={imageUrl}
-                  setImageUrs={setImageUrs}
+                  setImageUrl={setImageUrl}
                 />
                 <PerfumeSelect
                   perfumes={perfumes}

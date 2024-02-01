@@ -30,7 +30,7 @@ export default function CandleHome() {
         }}
       >
         {candles.map((candle) => (
-          <Link to={`/candle/${candle.id}`}>
+          <Link key={candle.id} to={`/candle/${candle.id}`}>
             <Card
               sx={{
                 maxWidth: 100,

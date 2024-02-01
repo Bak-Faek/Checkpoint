@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import AdminAdd from "./Add/AdminAdd";
+import DeleteCandle from "./Delete/DeleteCandle";
 
 export default function Admin() {
   const [candles, setCandles] = useState([]);
@@ -30,39 +32,46 @@ export default function Admin() {
           <AdminAdd />
         </Card>
         {candles.map((candle) => (
-          <Card
-            sx={{
-              maxWidth: 100,
-              minWidth: 150,
-              maxHeight: 100,
-              minHeight: 200,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <CardMedia
-              sx={{ height: 100 }}
-              image={candle.image_url}
-              title="bougie"
-            />
-            <CardContent
+          <Link key={candle.id} to={`/candle/${candle.id}`}>
+            <Card
               sx={{
+                maxWidth: 100,
+                minWidth: 200,
+                maxHeight: 100,
+                minHeight: 300,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <Typography align="center" variant="h6" component="div">
-                {candle.candleName}
-              </Typography>
-              <Typography align="center" variant="body" color="text.secondary">
-                {candle.candleDescription}
-              </Typography>
-            </CardContent>
-          </Card>
+              <DeleteCandle id={candle.id} />
+              <CardMedia
+                sx={{ height: 100 }}
+                image={candle.imageUrl}
+                title="bougie"
+              />
+              <CardContent
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Typography align="center" variant="h6" component="div">
+                  {candle.candleName}
+                </Typography>
+                <Typography
+                  align="center"
+                  variant="body"
+                  color="text.secondary"
+                >
+                  {candle.candleDescription}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </Box>
     </section>

@@ -7,7 +7,7 @@ export default function CandleForm({
   candleDescription,
   setCandleDescription,
   imageUrl,
-  setImageUrs,
+  setImageUrl,
 }) {
   // Nom
 
@@ -23,7 +23,7 @@ export default function CandleForm({
 
   // image URL
   const handleChangeImage = (e) => {
-    setImageUrs(e.target.value);
+    setImageUrl(e.target.value);
   };
 
   return (
@@ -74,5 +74,5 @@ CandleForm.propTypes = {
   setCandleName: PropTypes.func.isRequired,
   setCandleDescription: PropTypes.func.isRequired,
   imageUrl: PropTypes.string.isRequired,
-  setImageUrs: PropTypes.string.isRequired,
+  setImageUrl: PropTypes.func.isRequired,
 };
