@@ -12,10 +12,13 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  z-index: 0;
+  position: relative;
 }
 @media (width > 767px) {
   .carouselImageContainer {
     width: auto;
     max-height: 40rem;
+    padding-left: 20rem;
   }
 }

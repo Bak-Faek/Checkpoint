@@ -17,7 +17,7 @@ export default function Header() {
         </Link>
       </div>
 
-      <h1>Candle</h1>
+      <h1>Candle Light</h1>
 
       <div className={styles.favoris}>
         <Link className={styles.svgLink} to="/login">
