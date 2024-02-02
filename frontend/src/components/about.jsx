@@ -25,12 +25,22 @@ export default function aboutUs() {
           alignItems: "center",
         }}
       >
-        <CardContent>
+        <CardContent
+          sx={{
+            maxWidth: 800,
+            padding: 5,
+          }}
+        >
           <Typography gutterBottom variant="h6" component="div">
             Quelque mots du fondateur :
           </Typography>
-          <Typography>
-            "Bienvenue dans notre oasis de lumière et de créativité, où chaque
+          <Typography
+            sx={{
+              maxWidth: 800,
+              padding: 5,
+            }}
+          >
+            "Bienvenue dans notre oFasis de lumière et de créativité, où chaque
             bougie raconte une histoire et chaque flamme danse avec grâce. Notre
             site est un sanctuaire pour les amateurs de bougies, les passionnés
             de parfums et les collectionneurs d'émotions. Que vous soyez à la
