@@ -1,9 +1,18 @@
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying a pedagogical tool.
+Welcome to our candle collection application, where simplicity reigns supreme. Our sole purpose is to present you with a curated assortment of candles, each accompanied by its name, description, color, and fragrance. No frills, no fuss—just a straightforward display of these luminous gems for you to explore at your leisure. Whether you're drawn to the calming scent of lavender or the invigorating aroma of citrus, our collection offers a diverse range to suit every preference. Enjoy browsing through our selection and let the beauty of these candles brighten your day.
+
+link to trello : https://trello.com/b/YK67yPZ4/checkpoint-4
+
+link to prototype :https://trello.com/b/YK67yPZ4/checkpoint-4
+
+link to modelisation: https://app.diagrams.net/#G1_1hngW4gXwCrEUPRN8iMdw4RPGo6ewYR
+
+
 
 ## Setup & Use
+
+Just scroll through the application and enjoy each candle! Take your time to appreciate the beauty of every flicker and scent.
 
 ### Windows users
 
@@ -20,6 +29,12 @@ git config --global core.autocrlf false
 - Clone this repo, enter it
 - Run command `npm install`
 - Create environment files (`.env`) in both `backend` and `frontend`: you can copy `.env.sample` files as starters (**don't** delete them)
+
+command to use at start:
+
+- npm i
+- npm run db:migrate
+- npm run db:seed
 
 ### Available Commands
 

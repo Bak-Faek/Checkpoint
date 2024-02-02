@@ -1,0 +1,35 @@
+.menumobile {
+  background-color: #fefee2;
+  border: none;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 4rem;
+  bottom: 0;
+}
+.Navbaricon {
+  width: 2rem;
+}
+.amdin {
+  width: 3rem;
+}
+nav ul,
+nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+}
+/* Styles pour les appareils desktop */
+/* @media (min-width: 767px) {
+  .mainmenu {
+    display: none;
+  }
+  .menumobile {
+    display: none;
+  }
+} */

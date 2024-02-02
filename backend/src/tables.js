@@ -4,9 +4,17 @@
 
 // Import the manager modules responsible for handling data operations on the tables
 const ItemManager = require("./models/ItemManager");
+const CandleManager = require("./models/CandleManagers");
+const UserManager = require("./models/UserManager");
+const ColorManager = require("./models/ColorManager");
+const PerfumeManager = require("./models/perfumeManager");
 
 const managers = [
   ItemManager,
+  CandleManager,
+  UserManager,
+  ColorManager,
+  PerfumeManager,
   // Add other managers here
 ];
 
